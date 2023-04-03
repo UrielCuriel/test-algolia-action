@@ -1,0 +1,15 @@
+name: Algolia Indexer
+
+on: push
+
+jobs:
+  algolia-indexer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: urielcuriel/algolia-decap-cms-action@v1.2.2
+        with:
+          algolia_app_id: ${{ secrets.ALGOLIA_APP_ID }}
+          algolia_admin_api_key: ${{ secrets.ALGOLIA_ADMIN_API_KEY }}
+          algolia_index_name: 'blog-test'
+          algolia_collection_path: 'content/blog'
